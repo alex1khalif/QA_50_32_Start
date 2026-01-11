@@ -9,6 +9,8 @@ import java.time.Duration;
 public class SelectorsCss {
      WebDriver driver = new ChromeDriver();
 
+
+
      @Test
     public void phoneBookTest()
      {
@@ -46,6 +48,32 @@ public class SelectorsCss {
              throw new RuntimeException(e);
          }
      }
+
+     @Test
+    public void iLcarroTest()
+    {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://ilcarro.web.app/login?url=%2Fsearch");
+        pause(3);
+
+        WebElement btnSearch = driver.findElement(By.cssSelector("a[href='/search']"));
+        btnSearch.click();
+        pause(3);
+        WebElement btnTermsOfUse = driver.findElement(By.id("2"));
+        btnTermsOfUse.click();
+        pause(3);
+        WebElement btnSignUp = driver.findElement(By.linkText("Sign up"));
+        System.out.println("Class of Sign Up - " + btnSignUp.getAttribute("class"));
+        btnSignUp.click();
+        pause(3);
+        driver.navigate().back();
+        pause(3);
+        driver.quit();
+
+
+    }
 
 
 }
