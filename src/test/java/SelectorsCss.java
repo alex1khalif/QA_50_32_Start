@@ -75,5 +75,53 @@ public class SelectorsCss {
 
     }
 
+    @Test
+    public void iLcarroTest2()
+    {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://ilcarro.web.app/search");
+        pause(3);
+        WebElement logoHeader = driver.findElement(By.cssSelector("img[alt='logo']"));
+        logoHeader.click();
+        pause(3);
+        // .navigation-link
+        // a[class='navigation-link']
+        // a.navigation-link
+        // *[class='navigation-link']
+        // [class='navigation-link']
+        WebElement btnSearch = driver.findElement(By.className("navigation-link"));
+        btnSearch.click();
+        pause(3);
+        // a[id='1']
+        // [id='1']
+        //WebElement btnLetTheCarWork = driver.findElement(By.id("1"));
+        //WebElement btnLetTheCarWork = driver.findElement(By.linkText("Let the car work"));
+        WebElement btnLetTheCarWork = driver.findElement(By.partialLinkText("work"));
+        btnLetTheCarWork.click();
+        pause(3);
+        //a[href*='/of-use'] * включает
+        //a[href^='/terms'] ^ начинается
+        //a[href$='/-use'] $ заканчивается
+        //a.navigation-link[href='/terms-of-use']
+        WebElement btnTermsOfUse = driver.findElement(By.cssSelector("[href='/terms-of-use']"));
+        btnTermsOfUse.click();
+        pause(3);
+        WebElement btnSignUp = driver.findElement(By.cssSelector("div.header a.navigation-link:nth-child(5)"));
+        btnSignUp.click();
+        pause(3);
+        WebElement btnLogIn = driver.findElement(By.cssSelector("div.header a.navigation-link:last-child"));
+        btnLogIn.click();
+        pause(3);
+
+        driver.navigate().to("https://ilcarro.web.app/search");
+        pause(2);
+        driver.quit();
+
+
+
+    }
+
 
 }
