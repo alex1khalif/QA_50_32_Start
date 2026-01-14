@@ -43,10 +43,41 @@ public class SelectorsXpath {
         btnSignOut.click();
         pause(2);
 
+
         List<WebElement> buttons = driver.findElements(By.xpath("//button"));
         System.out.println(buttons);
         System.out.println(buttons.get(1).getText());
+        driver.quit();
+    }
 
+    @Test
+    public void iLcarroXpathTest()
+    {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://ilcarro.web.app/search ");
+        pause(2);
+        WebElement btnLogIn = driver.findElement(By.xpath("//*[text()='Log in']"));
+        btnLogIn.click();
+        pause(2);
+        WebElement fieldEmail = driver.findElement(By.xpath("//input[@id='email']"));
+        fieldEmail.sendKeys("alex1khalif999@gmail.com");
+        pause(2);
+        WebElement fieldPassword = driver.findElement(By.xpath("//*[@ng-reflect-name='password']"));
+        fieldPassword.sendKeys("Qwerty12345!");
+        pause(2);
+        WebElement btnYalla = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnYalla.click();
+        pause(2);
+        WebElement btnOk = driver.findElement(By.xpath("//button[@class='positive-button" +
+                " ng-star-inserted']"));
+        btnOk.click();
+        pause(2);
+        WebElement btnLogOut = driver.findElement(By.xpath("//a[@ng-reflect-router-link='logout']"));
+        btnLogOut.click();
+        pause(2);
+        driver.get("https://ilcarro.web.app/search");
 
 
 
