@@ -65,9 +65,11 @@ public class SelectorsXpath {
         fieldEmail.sendKeys("alex1khalif999@gmail.com");
         pause(2);
         WebElement fieldPassword = driver.findElement(By.xpath("//*[@ng-reflect-name='password']"));
+        // //form/div[last()]/input  вниз
         fieldPassword.sendKeys("Qwerty12345!");
         pause(2);
         WebElement btnYalla = driver.findElement(By.xpath("//button[@type='submit']"));
+        // //button[start-with(text(), 'Y’a')]
         btnYalla.click();
         pause(2);
         WebElement btnOk = driver.findElement(By.xpath("//button[@class='positive-button" +
@@ -78,6 +80,11 @@ public class SelectorsXpath {
         btnLogOut.click();
         pause(2);
         driver.get("https://ilcarro.web.app/search");
+        driver.quit();
+        // //input[@id='password']/../..    - .. это движение вверх по дереву
+
+
+
 
 
 
